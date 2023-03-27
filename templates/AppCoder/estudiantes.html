@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block contenido_titulo %}
+    <h1 class="mb-5">Portal estudiantes</h1>
+{% endblock %}
+{% block contenido_cambia %}
+<h4>Ingrese el nombre del estudiante y apellido para registrar </h4>
+    <form action="{% url 'AppCoderEstudiantes' %}" method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value ="Enviar">
+    </form>
+    <br><hr>
+<h4>Ingrese nombre y apellido del estudiante que quiere buscar </h4>
+    <form action="{% url 'AppCoderBuscarEstudiantes' %}">
+        {{ form_busqueda.as_p }}
+        <input type="submit" value ="Buscar">
+    </form>
+    <br><hr>
+    <!-- Navigation
+    {% if cursos %}
+        {% for curso in cursos %}
+            <p>curso: {{ curso.nombre }}</p>
+            <p>camada: {{ curso.camada }}</p>
+        {% endfor %}
+    {% else %}
+        <h1>No hay cursos en el momento</h1>
+    {% endif %}-->
+{% endblock %}

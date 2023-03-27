@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block contenido_titulo %}
+    <h1 class="mb-5">Portal de cursos</h1>
+{% endblock %}
+{% block contenido_cambia %}
+<h4>Ingrese nombre del curso y numero camada que desea agregar </h4>
+    <form action="{% url 'AppCoderCursos' %}" method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value ="Enviar">
+    </form>
+    <br><hr>
+<h4>Nombre del curso que desea</h4>
+    <form action="{% url 'AppCoderBuscarCursos' %}">
+        {{ form_busqueda.as_p }}
+        <input type="submit" value ="Buscar">
+    </form>
+    <br><hr>
+{% endblock %}

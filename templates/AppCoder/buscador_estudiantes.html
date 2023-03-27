@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block contenido_titulo %}
+    <h1 class="mb-5">Portal estudiantes</h1>
+{% endblock %}
+{% block contenido_cambia %}
+  <h4>Estudiantes filtrados </h4>
+  {% if estudiante %}
+    {% for nombre in estudiante %}
+      <p>{{ nombre }}</p>
+    {% endfor %}
+  {% else %}
+    <h5>No se encontro al estudiante </h5>
+  {% endif %}
+
+
+{% endblock %}
